@@ -44,8 +44,7 @@ INSTALLED_APPS = [
     'psycopg2',
     'djoser',
 
-    # installed apps
-    'teacher',
+    # installed apps    
     'student',
 
 ]
