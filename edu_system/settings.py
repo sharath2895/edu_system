@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 from decouple import config
 import os
 import datetime
+import sys
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -28,7 +29,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
+DEFAULT_AUTO_FIELD='django.db.models.AutoField' 
 # Application definition
 
 INSTALLED_APPS = [
@@ -81,6 +82,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'edu_system.wsgi.application'
 
+sys.setrecursionlimit(10000)
+
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
@@ -95,6 +98,14 @@ DATABASES = {
         'USER': config('DB_USER'),
     }
 }
+
+REST_FRAMEWORK ={
+    'NON_FIELD_ERRORS_KEY':'errors',
+    'DEFAULT_AUTHENTICATION_CLASSES':(
+        'rest_framework.authentication.TokenAuthentication',
+    )
+}
+
 
 
 # Password validation
