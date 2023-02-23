@@ -29,7 +29,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-DEFAULT_AUTO_FIELD='django.db.models.AutoField' 
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 # Application definition
 
 INSTALLED_APPS = [
@@ -45,11 +45,11 @@ INSTALLED_APPS = [
     'psycopg2',
     'djoser',
 
-    # installed apps    
+    # installed apps
     'student',
+    'class',    
 
 ]
-
 
 
 MIDDLEWARE = [
@@ -99,13 +99,12 @@ DATABASES = {
     }
 }
 
-REST_FRAMEWORK ={
-    'NON_FIELD_ERRORS_KEY':'errors',
-    'DEFAULT_AUTHENTICATION_CLASSES':(
+REST_FRAMEWORK = {
+    'NON_FIELD_ERRORS_KEY': 'errors',
+    'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.TokenAuthentication',
     )
 }
-
 
 
 # Password validation
